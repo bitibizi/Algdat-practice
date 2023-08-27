@@ -38,13 +38,23 @@ public class Main {
     public static long fak(int n){
         int i;
         int fact=1;
-        int number=5;
-        for(i=1;i<=number;i++){
-            fact=fact*i;
+
+        for(i=2;i<=n;i++){
+            fact*=i;
         }
 
         return fact;
 
+    }
+
+    public static long fak1(int n) {
+        if (n < 0)
+            throw new IllegalArgumentException("n < 0");
+        long fak = 1;
+
+        for (int i = 2; i <= n; i++) fak *= i;
+
+        return fak;
     }
 
     public static int maks(int[] a)  // a er en heltallstabell
@@ -63,7 +73,7 @@ public class Main {
 
     } // maks
 
-    public static int maks1(int[] a)  // versjon 3 av maks-metoden
+   /* public static int maks1(int[] a)  // versjon 3 av maks-metoden
     {
         int sist = a.length - 1;       // siste posisjon i tabellen
         int m = 0;                     // indeks til største verdi
@@ -85,16 +95,20 @@ public class Main {
                     m = i;                   // m oppdateres
                 }
             }
-    }
+    }*/
 
 
     public static void main(String[] args) {
 
        int []list={8,4,17,10,6,20,1,11,15,18,9,2,19};
+        System.out.println(min(list));
 
 
        int [] b={};
-       System.out.println(maks1(b));
+      // System.out.println(maks1(b));
+        System.out.println(fak1(5));
+        System.out.println(fak(5));
+
     }
 
 }
