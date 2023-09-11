@@ -1,3 +1,5 @@
+package Practice;
+
 public class Maksverdi {
 
     public static int Nestemaks(int [] a) {
