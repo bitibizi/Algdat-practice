@@ -9,26 +9,31 @@ public class OddAndEvenNumbers {
     public interface Comparator<T> {
         int compare(T a, T b);
     }
-
+// sammenligner alle oddetall først og sammenlignin i bare partall etterpå
     public static class OddePartallKomparator implements Comparator<Integer> {
         public int compare(Integer a, Integer b) {
             if (a % 2 == b % 2) return b.compareTo(a);
             else if (a % 2 > b % 2) {
                 return 1;
+                //a er nye tall og b er maksverdi og dersom a er even tall og b er eventall ønsker at oddtall blir maksverdi
+                // og derfor retunerer 1
             } else if (b % 2 > a % 2) {
                 return -1;
+                // Dersom maksverdi b er oddtall og a er even tall vil gjerne beholde oddtall som maksverdi derfor
+                //retunerer -1 for å gå videre
             }
 
             return 0;
         }
     }
 
+    //maksverdi er ikke egentlig maks verdi
     static <T> int maks(T[] values, int begin, int end, Comparator<T> comp) {
         T currentMax = values[begin];
         int currentIndex = begin;
 
         for (int i = begin+1; i < end; i++) {
-            if (comp.compare(values[i], currentMax) >0) {
+            if (comp.compare(values[i], currentMax) <0) {
                 currentMax = values[i];
                 currentIndex = i;
             }
