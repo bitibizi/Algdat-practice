@@ -8,7 +8,10 @@ public class Generics {
         Integer[] a = {1, 8, 9, 18, 98, 2, 3, 9};
         Character[] b = {'A', 'C', 'K', 'Z', 'L', 'Y', 'M'};
         String[] c = {"ASF", "Kari", "poteter", "lammelår", "eple", "Petter"};
-        Person[] d = {new Person("Petter", "Pettersen"), new Person("Kari", "Pettersen"), new Person("Nils", "Abrahamsen"), new Person("Tor", "Toresen")};
+
+
+        Person[]d={new Person("Petter", "Pettersen"), new Person("Kari", "Pettersen"), new Person("Niles", "Abrahamsen")};
+        System.out.println(maks_generic(d));
 
         System.out.println("Maks av int-array:");
         System.out.println(maks(a));
@@ -25,38 +28,22 @@ public class Generics {
         System.out.println("Generic maks av string-array:");
         System.out.println(maks_generic(c));
 
-        System.out.println("Generic maks av Person-array:");
-        System.out.println(maks_generic(d));
-
     }
 
-    public static class Person implements Comparable<Person> {
-        String first_name;
-        String last_name;
-
-        Person(String first_name, String last_name) {
-            this.first_name = first_name;
-            this.last_name = last_name;
+    public static class Person implements Comparable<Person>{
+        String firstname;
+        String lastname;
+        Person(String firstname, String lastname){
+            this.firstname=firstname;
+            this.lastname=lastname;
         }
 
-        public int compareTo(Person other) {
-            /*
-            if (this.last_name < other.last_name) {
-                return -1;
-             }
-             else if (this.last_name == other.last_name) {
-                return 0;
-             }
-             else {
-                return 1;
-             }
-             */
-            int last_compare = this.last_name.compareTo(other.last_name);
-            if (last_compare == 0) {
-                return this.first_name.compareTo(other.first_name);
-            }
-            else {
-                return last_compare;
+        public int compareTo(Person other){
+            int lastCompare=this.lastname.compareTo(other.lastname);
+            if(lastCompare==0){
+                return this.firstname.compareTo(other.firstname);
+            }else{
+                return lastCompare;
             }
         }
     }
@@ -76,6 +63,7 @@ public class Generics {
         }
         return current_index;
     }
+
 
     static int maks(Integer[] values) {
         int current_max = values[0];
