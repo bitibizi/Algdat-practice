@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Quicksort {
-    private static int[] quicksort(int[] array) {
+    public static int[] quicksort(int[] array) {
        return quicksort(array, 0, array.length - 1);
     }
 

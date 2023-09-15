@@ -12,7 +12,7 @@ public class OddAndEvenNumbers {
 // sammenligner alle oddetall først og sammenlignin i bare partall etterpå
     public static class OddePartallKomparator implements Comparator<Integer> {
         public int compare(Integer a, Integer b) {
-            if (a % 2 == b % 2) return b.compareTo(a);
+            if (a % 2 == b % 2) return a.compareTo(b);
             else if (a % 2 > b % 2) {
                 return 1;
                 //a er nye tall og b er maksverdi og dersom a er even tall og b er eventall ønsker at oddtall blir maksverdi
@@ -33,7 +33,7 @@ public class OddAndEvenNumbers {
         int currentIndex = begin;
 
         for (int i = begin+1; i < end; i++) {
-            if (comp.compare(values[i], currentMax) <0) {
+            if (comp.compare(values[i], currentMax) >0) {
                 currentMax = values[i];
                 currentIndex = i;
             }
