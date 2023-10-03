@@ -69,7 +69,7 @@ public class Oppgave1 {
         return c;
     }
 
-    private static void flett(int[] a, int[] b, int fra, int m, int til) {
+    public static void flett(int[] a, int[] b, int fra, int m, int til) {
         int n = m - fra;                // antall elementer i a[fra:m>
         System.arraycopy(a, fra, b, 0, n);  // kopierer a[fra:m> over i b[0:n>
 
@@ -148,6 +148,7 @@ public class Oppgave1 {
         System.out.println("Kvikksortering: " + tid2);*/
 
         System.out.println(forskjellige2(a));
+
 
     }
 
