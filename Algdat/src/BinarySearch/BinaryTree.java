@@ -22,29 +22,68 @@ public class BinaryTree {
 
         BinaryTreeNode addRightChild(char value) {
             this.rightChild = new BinaryTreeNode(value);
-            return this.leftChild;
+            return this.rightChild;
         }
 
 
     }
 
-    static void printlevelOrder(BinaryTreeNode root){
-        ArrayDeque<BinaryTreeNode> queue=new ArrayDeque<>();
+    static void printlevelOrder(BinaryTreeNode root) {
+        ArrayDeque<BinaryTreeNode> queue = new ArrayDeque<>();
         queue.addLast(root);
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
 
-            BinaryTreeNode current=queue.removeFirst();
+            BinaryTreeNode current = queue.removeFirst();
 
-            if(current.leftChild!=null){
+            if (current.leftChild != null) {
                 queue.addLast(current.leftChild);
             }
 
-            if(current.rightChild!=null){
+            if (current.rightChild != null) {
                 queue.addLast(current.rightChild);
             }
 
-            System.out.println(current.value+" ");
+            System.out.println(current.value + " ");
+
+        }
+    }
+
+    static void printPreOrder(BinaryTreeNode node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.value + " ");
+        printPreOrder(node.leftChild);
+        printPreOrder(node.rightChild);
+    }
+
+    static void printInOrder(BinaryTreeNode node) {
+        if (node == null) {
+            return;
+        }
+
+        printInOrder(node.leftChild);
+        System.out.print(node.value + " ");
+        printInOrder(node.rightChild);
+    }
+
+    static void iterativFunksjonPre(BinaryTreeNode root) {
+        ArrayDeque<BinaryTreeNode> stack = new ArrayDeque<>();
+        stack.addLast(root);
+
+        while (!stack.isEmpty()) {
+            BinaryTreeNode current = stack.removeLast();
+
+            if (current.rightChild != null) {
+                stack.addLast(current.rightChild);
+            }
+            if (current.leftChild != null) {
+                stack.addLast(current.leftChild);
+            }
+
+            System.out.print(current.value+" ");
+
 
         }
     }
@@ -62,7 +101,15 @@ public class BinaryTree {
         BinaryTreeNode f = c.addLeftChild('F');
         BinaryTreeNode g = c.addRightChild('G');
 
-        printlevelOrder(root);
+
+        System.out.print("Preorder is ");
+        printPreOrder(root);
+        System.out.println(" ");
+        System.out.print("Inorder is ");
+        printInOrder(root);
+
+        System.out.println(" ");
+        iterativFunksjonPre(root);
 
     }
 
