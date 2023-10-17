@@ -30,6 +30,7 @@ public class BinaryTree {
 
     static void printlevelOrder(BinaryTreeNode root) {
         ArrayDeque<BinaryTreeNode> queue = new ArrayDeque<>();
+
         queue.addLast(root);
 
         while (!queue.isEmpty()) {
@@ -100,6 +101,8 @@ public class BinaryTree {
 
         BinaryTreeNode f = c.addLeftChild('F');
         BinaryTreeNode g = c.addRightChild('G');
+
+        printlevelOrder(root);
 
 
         System.out.print("Preorder is ");

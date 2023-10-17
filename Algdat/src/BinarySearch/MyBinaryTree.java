@@ -17,7 +17,7 @@ public class MyBinaryTree {
 
         static void insert(Node current, char value) {
             //recursiv funksjon:
-            //1. kallse seg selv
+            //1. kalle seg selv
             //2. forenkle argumentene
             //3. ende i et basistilfelle.
 
